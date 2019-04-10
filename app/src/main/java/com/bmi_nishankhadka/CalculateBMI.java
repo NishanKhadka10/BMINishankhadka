@@ -19,9 +19,13 @@ public class CalculateBMI {
         this.weight = weight;
     }
 
-    public void calculateBMI()
+    public double calculateBMI(double height,double weight)
     {
+        double heightinm =(height*height)/10000;
+        double mass = weight /heightinm;
+        return mass;
 
     }
+
 }
 
