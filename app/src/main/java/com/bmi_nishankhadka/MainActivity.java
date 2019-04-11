@@ -29,32 +29,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (validate()) {
-                    CalculateBMI result = new CalculateBMI();
+
                     double height = Double.parseDouble(txtheight.getText().toString());
                     double weight = Double.parseDouble(txtweight.getText().toString());
+
+                    CalculateBMI result = new CalculateBMI(height, weight);
                     double bmi = result.calculateBMI(height, weight);
                     tvoutput.setText(Double.toString(bmi));
 
-                    if(bmi<18.5)
-                    {
-                      Toast newtoast = Toast.makeText(MainActivity.this, "Underweight", Toast.LENGTH_LONG);
-                      newtoast.show();
+                    if (bmi < 18.5) {
+                        Toast.makeText(MainActivity.this, "Underweight", Toast.LENGTH_LONG).show();
+                    } else if (bmi >= 18.5 && bmi <= 24.9) {
+                        Toast.makeText(MainActivity.this, "Normal", Toast.LENGTH_LONG).show();
+                    } else if (bmi >= 25 && bmi <= 29.9) {
+                        Toast.makeText(MainActivity.this, "Overweight", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(MainActivity.this, "obesity", Toast.LENGTH_LONG).show();
 
-                    }
-                    else if(bmi>=18.5 && bmi<=24.9)
-                    {
-                    Toast newtoast1 = Toast.makeText(MainActivity.this,"Normal",Toast.LENGTH_LONG);
-                    newtoast1.show();
-                    }
-                    else if(bmi>=25&&bmi<=29.9)
-                    {
-                        Toast newtoast2 = Toast.makeText(MainActivity.this,"Overweight",Toast.LENGTH_LONG);
-                        newtoast2.show();
-                    }
-                    else if(bmi >=30)
-                    {
-                        Toast newtoast3 = Toast.makeText(MainActivity.this,"obesity",Toast.LENGTH_LONG);
-                        newtoast3.show();
+
                     }
 
 

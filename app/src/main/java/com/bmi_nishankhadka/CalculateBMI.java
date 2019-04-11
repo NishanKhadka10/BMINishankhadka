@@ -3,6 +3,12 @@ package com.bmi_nishankhadka;
 public class CalculateBMI {
     private double height,weight;
 
+    public CalculateBMI(double height,double weight)
+    {
+        this.height = height;
+        this.weight = weight;
+    }
+
     public double getHeight() {
         return height;
     }
@@ -21,9 +27,7 @@ public class CalculateBMI {
 
     public double calculateBMI(double height,double weight)
     {
-        double heightinm =(height*height)/10000;
-        double mass = weight /heightinm;
-        return mass;
+        return (this.weight/((this.height/100)*(this.height/100)));
 
     }
 
